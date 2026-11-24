@@ -1,0 +1,12 @@
+{
+  "name": "claude-mods",
+  "owner": { "name": "devondragon" },
+  "description": "Personal Claude Code and Claude desktop app mods: themes and interface tweaks.",
+  "plugins": [
+    {
+      "name": "neon-grid",
+      "source": "./plugins/neon-grid",
+      "description": "A dark neon-grid look: black glass, cyan light lines, an orange second accent and a slow animated grid horizon."
+    }
+  ]
+}
