@@ -24,8 +24,12 @@ claude plugin install neon-grid --marketplace devondragon/claude-mods
 
 In the desktop app, where `/plugin` does not run: click + next to the prompt box, then Plugins, Add marketplace with `devondragon/claude-mods`, then Add plugin.
 
-Answer `y` to add the marketplace, then pick a scope. This repository is private, so the install works only for people who can read it on GitHub and whose machine already holds a git credential for github.com (an SSH key, or `gh auth login` followed by `gh auth setup-git`).
+Answer `y` to add the marketplace, then pick a scope.
 
 ## Adding a mod
 
 Put the new mod in `plugins/<mod-name>/` (with its `.claude-plugin/plugin.json` and `hooks/`), add an entry to `.claude-plugin/marketplace.json` whose `source` is `./plugins/<mod-name>`, and run `claude plugin validate plugins/<mod-name>`.
+
+## License
+
+Apache License 2.0. See [LICENSE](LICENSE).
