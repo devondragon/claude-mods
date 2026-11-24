@@ -147,19 +147,19 @@ export const register: Register = on => {
   on('session.start', async ($, e, next) => {
     const unpainted = problems.find(line => line.startsWith("Desktop won't paint"))
     if (unpainted !== undefined) {
-      $.ui.log(unpainted)
+      $.ui.log(unpainted, { to: 'debug' })
     }
 
     let set
     try {
       set = await $.theme.set({ ...LOOK, style: STYLE, sound: SOUND })
     } catch (error) {
-      $.ui.log(`neon-grid: falling back without style and sound: ${String(error)}`)
+      $.ui.log(`falling back without style and sound: ${String(error)}`, { to: 'debug' })
       set = await $.theme.set(LOOK)
     }
-    // A terminal never draws themes, so keep this out of the status line.
+    // A terminal never draws themes, so keep this to the debug log.
     if (!set.isDrawn) {
-      $.ui.log(`neon-grid: ${set.reason}`)
+      $.ui.log(set.reason, { to: 'debug' })
     }
     return next(e)
   })
