@@ -147,7 +147,7 @@ export const register: Register = on => {
   on('session.start', async ($, e, next) => {
     const unpainted = problems.find(line => line.startsWith("Desktop won't paint"))
     if (unpainted !== undefined) {
-      $.ui.toast(unpainted)
+      $.ui.log(unpainted)
     }
 
     let set
@@ -157,8 +157,9 @@ export const register: Register = on => {
       $.ui.log(`neon-grid: falling back without style and sound: ${String(error)}`)
       set = await $.theme.set(LOOK)
     }
+    // A terminal never draws themes, so keep this out of the status line.
     if (!set.isDrawn) {
-      $.ui.status(set.reason)
+      $.ui.log(`neon-grid: ${set.reason}`)
     }
     return next(e)
   })
